@@ -19,7 +19,7 @@ imagen = ctk.CTkImage(light_image=Image.open(RT_User),
 
 #FUNCIONES
 def acceder():
-    Conexion.conectarse(ETY_Usuario.get, ETY_Contrasena.get())
+    Conexion.conectarse(ETY_Usuario.get(), ETY_Contrasena.get())
 
 #END FUNCIONES-----------------------------------------------
 

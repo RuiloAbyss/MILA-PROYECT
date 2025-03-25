@@ -14,8 +14,10 @@ def conectarse(usuario="", contrasena=""):
         connection = pyodbc.connect(connection_string)
         print("Conexión exitosa al servidor remoto")
         return connection
+
     except Exception as e:
         error_message = str(e)
+        #print (error_message)
         # Manejo de errores detallado
         if "Login failed" in error_message:
             print("Error: Credenciales incorrectas")
@@ -26,7 +28,6 @@ def conectarse(usuario="", contrasena=""):
         else:
             print("Error desconocido:", error_message)
         return None
-
 
 # Ejemplo de uso
 '''
