@@ -20,14 +20,13 @@ def conectarse(usuario="", contrasena=""):
         #print (error_message)
         # Manejo de errores detallado
         if "Login failed" in error_message:
-            print("Error: Credenciales incorrectas")
+            return "Error: Credenciales incorrectas"
         elif "Server does not exist" in error_message:
-            print("Error: El servidor remoto no se encuentra")
+            return "Error: El servidor remoto no se encuentra"
         elif "timeout" in error_message:
-            print("Error: Tiempo de espera agotado, verifica el puerto")
+            return "Error: Tiempo de espera agotado, verifica el puerto"
         else:
-            print("Error desconocido:", error_message)
-        return None
+            return "Error desconocido:"#, error_message
 
 # Ejemplo de uso
 '''
