@@ -1,10 +1,12 @@
+#OBJETOS
 import VentanaSesion as VTS
+#END OBJETOS
 
 class Main:
     def __init__(self):
         # Crear instancia de la ventana de sesión
         SesionWD = VTS.VentanaSesion()  
-       
+        
        
 #----------------------------------------------------------------------------------------------------------
 # Función principal para ejecutar
