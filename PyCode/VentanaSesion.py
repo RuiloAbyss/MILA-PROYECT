@@ -9,10 +9,19 @@ from PIL import Image
 import EstiloFuente as EF
 Default = EF.EstiloFuente() #Fuente por defecto
 
+import Conexion# Conexion a BD
+
 #Imagenes
 RT_User = "Assets/Imagenes/User.png"  # Ajusta la ruta de la imagen según tu estructura de carpetas
-
+imagen = ctk.CTkImage(light_image=Image.open(RT_User), 
+                      dark_image=Image.open(RT_User), size=(170, 170))  # Usar (light/dark)_image y especificar el tamaño
 #END OBJETOS-------------------------------------------------
+
+#FUNCIONES
+def acceder():
+    Conexion.conectarse(ETY_Usuario.get, ETY_Contrasena.get())
+
+#END FUNCIONES-----------------------------------------------
 
 #CONTENEDOR
 VentanaSesion = ctk.CTk() #Herencia Apariencia
@@ -21,11 +30,8 @@ VentanaSesion.resizable(False, False) #Evitamos que la ventana cresca en ambas d
 VentanaSesion.geometry("400x500") #Tamaño del contenedor (ventana)
 VentanaSesion.configure(fg_color="pink")
 
-
 #CONTENIDO
 
-imagen = ctk.CTkImage(light_image=Image.open(RT_User), 
-                      dark_image=Image.open(RT_User), size=(170, 170))  # Usar (light/dark)_image y especificar el tamaño
 
 #Imagen Usuario
 LBL_imagen = ctk.CTkLabel(master= VentanaSesion, text="", image=imagen)
@@ -61,13 +67,13 @@ LBL_Contrasena.place(relx=0.25, rely = 0.67,
                   anchor= "w")
 
 #Entrada Contraseña
-ETY_Contasena = CTkEntry(master = VentanaSesion, #Objeto Contenedor
+ETY_Contrasena = CTkEntry(master = VentanaSesion, #Objeto Contenedor
                        placeholder_text="", #Texto por Defecto
                        width= 200, #Ancho Objeto
                        border_width= 0, #Eliminamos el borde haciendolo 0 de ancho
                        fg_color= "white",
                        text_color= "black") #Color del Texto
-ETY_Contasena.place(relx=0.5, rely = 0.72, #Ubicación 0 a 1
+ETY_Contrasena.place(relx=0.5, rely = 0.72, #Ubicación 0 a 1
                   anchor = "center") #Alineación
 
 #Label AVISO
@@ -82,11 +88,10 @@ BTN_Acceso = CTkButton(master = VentanaSesion, #Objeto Contenedor
                        font=Default.font, #Tipo de Fuente
                        fg_color="orange",
                        text_color= Default.text_color,
-                       text = "Acceder") #Texto del Botón
+                       text = "Acceder",
+                       command=acceder) #Texto del Botón
 BTN_Acceso.place(relx = 0.5, rely = 0.87, #Ubicación 0 a 1
                  anchor = "center") #Alineación
-
-#CONFIGURACION DEL TEMA
 
 #--------------------------------------------------------
 VentanaSesion.mainloop()#Ejecutar Ventana
