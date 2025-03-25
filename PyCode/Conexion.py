@@ -7,7 +7,7 @@ BaseDatos = 'MilaProyect'  # Nombre de la base de datos
 Puerto = 2383  # Puerto fijo
 
 def conectarse(usuario="", contrasena=""):
-    connection_string = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={ServidorIP},{Puerto};DATABASE={BaseDatos};UID={usuario};PWD={contrasena}'
+    connection_string = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={Servidor},{Puerto};DATABASE={BaseDatos};UID={usuario};PWD={contrasena}'
     
     try:
         # Establecer conexión
